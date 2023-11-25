@@ -1,0 +1,32 @@
+version: '3.3'
+
+networks:
+  internal_app:
+    external: false
+  
+services: 
+    frontend:
+        container_name: ${PROJECT_NAME}-frontend
+        build: ./frontend
+        command: sh run.sh
+        volumes: 
+            - ./frontend:/frontend
+        ports: 
+            - 3000:3000
+        env_file: 
+            - .env
+        networks:
+            - internal_app
+
+    backend:
+        container_name: ${PROJECT_NAME}-backend
+        build: ./mock_backend
+        command: sh run.sh
+        volumes:
+            - ./mock_backend:/code
+        ports:
+            - 8000:8000
+        env_file:
+            - .env
+        networks:
+            - internal_app
