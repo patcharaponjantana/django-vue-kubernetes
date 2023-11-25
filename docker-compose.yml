@@ -1,32 +1,46 @@
 version: '3.3'
 
 networks:
-  internal_app:
-    external: false
+    internal_app:
+        external: false
   
+volumes:
+    media: {}
+    static: {}
+    graph_db: {}
+    db: {}
+
 services: 
-    frontend:
-        container_name: ${PROJECT_NAME}-frontend
-        build: ./frontend
-        command: sh run.sh
-        volumes: 
-            - ./frontend:/frontend
-        ports: 
-            - 3000:3000
-        env_file: 
+    db:
+        container_name: ${PROJECT_NAME}-db
+        image: postgres:11.3-alpine
+        env_file:
             - .env
-        networks:
-            - internal_app
+        volumes:
+            - db:/var/lib/postgresql/data
+
+    # frontend:
+    #     container_name: ${PROJECT_NAME}-frontend
+    #     build: ./frontend
+    #     command: sh run.sh
+    #     volumes: 
+    #         - ./frontend:/frontend
+    #     ports: 
+    #         - 3000:3000
+    #     env_file: 
+    #         - .env
+    #     networks:
+    #         - internal_app
 
     backend:
         container_name: ${PROJECT_NAME}-backend
-        build: ./mock_backend
-        command: sh run.sh
-        volumes:
-            - ./mock_backend:/code
-        ports:
+        build: ./backend
+        command: sh runserver.sh
+        volumes: 
+            - ./backend:/backend
+            - media:/var/www/${PROJECT_NAME}/media/
+            - static:/var/www/${PROJECT_NAME}/static/
+        ports: 
             - 8000:8000
-        env_file:
+        env_file: 
             - .env
-        networks:
-            - internal_app
