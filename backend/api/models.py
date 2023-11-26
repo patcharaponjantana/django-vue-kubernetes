@@ -14,46 +14,29 @@ class BookingUser(models.Model):
     def __str__(self):
         return f'{self.first_name} - {self.last_name} - {self.email}'
 
-class Booking(models.Model):
-    user = models.ForeignKey(BookingUser, on_delete=models.CASCADE)
-    boatschedule = = models.ForeignKey(BoatSchedule, on_delete=models.CASCADE)
-    create_at = models.DateTimeField(auto_now_add=False=True)
-    total_ticket = models.SmallInterger()
-    is_paid = models.Boolean(default=False)
+
+class FerryType(models.Model):
+    name = models.CharField(max_length=300)
     
     def __str__(self):
-        return f'{self.user.email} - {self.boatschedule.from} - {self.boatschedule.to}'
+        return f'{self.name}'
 
+class BoatSchedule(models.Model):
+    from_location = models.CharField(max_length=300)
+    to_lacation = models.CharField(max_length=300)
+    ferry_type = models.ForeignKey(FerryType, on_delete=models.CASCADE)
+    departure_datetime = models.DateTimeField()
+    price = models.FloatField()
+    
+    def __str__(self):
+        return f'{self.from_location} - {self.to_lacation} - {self.departure_datetime}'
 
-user_id
-boatschedule_id
-datetime
-total_ticket
-is_paid
-
-BoatSchedule
-id
-from
-to
-ferry_type
-Datetime
-price
-
-
-
-
-class booking(models.Model):
-
-
-{
-    "id": "PD2124",
-    "is_approve": false,
-    "booking_no": "PD2124",
-    "name": "David Soraham",
-    "email": "david.ham@gmail.com",
-    "total_ticket": "2",
-    "from": "Koh Phi Phi",
-    "to": "Krabi",
-    "time": "11:00 - 12:00",
-    "ferry": "Speedboat"
-},
+class Booking(models.Model):
+    user = models.ForeignKey(BookingUser, on_delete=models.CASCADE)
+    boatschedule = models.ForeignKey(BoatSchedule, on_delete=models.CASCADE)
+    create_at = models.DateTimeField(auto_now_add=True)
+    total_ticket = models.SmallIntegerField()
+    is_paid = models.BooleanField(default=False)
+    
+    def __str__(self):
+        return f'{self.user.email} - {self.boatschedule.from_location} - {self.boatschedule.to}'
