@@ -16,6 +16,13 @@ const routes: RouteRecordRaw[] = [
       default: () => import("./pages/Search.vue"),
     },
   },
+  {
+    path: "/booking",
+    name: "booking",
+    components: {
+      default: () => import("./pages/Booking.vue"),
+    },
+  },
 //   {
 //     path: "/project",
 //     redirect: "/"

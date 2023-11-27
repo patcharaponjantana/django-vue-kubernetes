@@ -1,6 +1,5 @@
 <template>
     <ListTicketPage :start="query.from" :end="query.to" :passengers="query.passengers" :date="query.date" />
-    {{ query.from }}
 </template>
 
 <script setup lang="ts">
