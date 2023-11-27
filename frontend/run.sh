@@ -1,7 +1,7 @@
 yarn
 
 # for development
-yarn start 
+yarn dev --port 3000 --host
 
 # for production
 # yarn install

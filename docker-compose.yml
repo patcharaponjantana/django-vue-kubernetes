@@ -21,18 +21,18 @@ services:
         ports: 
             - 5432:5432
 
-    # frontend:
-    #     container_name: ${PROJECT_NAME}-frontend
-    #     build: ./frontend
-    #     command: sh run.sh
-    #     volumes: 
-    #         - ./frontend:/frontend
-    #     ports: 
-    #         - 3000:3000
-    #     env_file: 
-    #         - .env
-    #     networks:
-    #         - internal_app
+    frontend:
+        container_name: ${PROJECT_NAME}-frontend
+        build: ./frontend
+        command: sh run.sh
+        volumes: 
+            - ./frontend:/code
+        ports: 
+            - 3000:3000
+        env_file: 
+            - .env
+        networks:
+            - internal_app
 
     backend:
         container_name: ${PROJECT_NAME}-backend
