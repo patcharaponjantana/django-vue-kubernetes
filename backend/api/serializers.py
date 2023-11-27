@@ -25,10 +25,10 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'name']
 
 # App
-class BookingUserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.BookingUser
-        fields = '__all__'
+# class BookingUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = models.BookingUser
+#         fields = '__all__'
 
 class FerryTypeSerializer(serializers.ModelSerializer):
     class Meta:

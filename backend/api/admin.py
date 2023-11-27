@@ -5,4 +5,4 @@ from . import models
 admin.site.register(models.FerryType)
 admin.site.register(models.BoatSchedule)
 admin.site.register(models.Booking)
-admin.site.register(models.BookingUser)
+# admin.site.register(models.BookingUser)

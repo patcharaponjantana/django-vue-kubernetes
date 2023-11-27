@@ -23,10 +23,10 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 # App
-class BookingUserViewSet(viewsets.ModelViewSet):
-    queryset = models.BookingUser.objects.all()
-    serializer_class = serializers.BookingUserSerializer
-    permission_classes = [permissions.IsAuthenticated]
+# class BookingUserViewSet(viewsets.ModelViewSet):
+#     queryset = models.BookingUser.objects.all()
+#     serializer_class = serializers.BookingUserSerializer
+#     permission_classes = [permissions.IsAuthenticated]
 
 class FerryTypeViewSet(viewsets.ModelViewSet):
     queryset = models.FerryType.objects.all()

@@ -5,7 +5,7 @@ from . import views
 router = routers.DefaultRouter()
 router.register('users', views.UserViewSet)
 router.register('groups', views.GroupViewSet)
-router.register('booking-user', views.BookingUserViewSet)
+# router.register('booking-user', views.BookingUserViewSet)
 router.register('ferry_type', views.FerryTypeViewSet)
 router.register('boat-schedule', views.BoatScheduleViewSet)
 router.register('booking', views.BookingViewSet)
