@@ -23,13 +23,13 @@ class FerryType(models.Model):
 
 class BoatSchedule(models.Model):
     from_location = models.CharField(max_length=300)
-    to_lacation = models.CharField(max_length=300)
+    to_location = models.CharField(max_length=300)
     ferry_type = models.ForeignKey(FerryType, on_delete=models.CASCADE)
     departure_datetime = models.DateTimeField()
     price = models.FloatField()
     
     def __str__(self):
-        return f'{self.from_location} - {self.to_lacation} - {self.departure_datetime}'
+        return f'{self.from_location} - {self.to_location} - {self.departure_datetime}'
 
 class Booking(models.Model):
     user = models.ForeignKey(BookingUser, on_delete=models.CASCADE)
@@ -39,4 +39,4 @@ class Booking(models.Model):
     is_paid = models.BooleanField(default=False)
     
     def __str__(self):
-        return f'{self.user.email} - {self.boatschedule.from_location} - {self.boatschedule.to}'
+        return f'{self.user.email} - {self.boatschedule.from_location} - {self.boatschedule.to_location}'

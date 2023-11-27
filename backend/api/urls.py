@@ -5,6 +5,10 @@ from . import views
 router = routers.DefaultRouter()
 router.register('users', views.UserViewSet)
 router.register('groups', views.GroupViewSet)
+router.register('booking-user', views.BookingUserViewSet)
+router.register('ferry_type', views.FerryTypeViewSet)
+router.register('boat-schedule', views.BoatScheduleViewSet)
+router.register('booking', views.BookingViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
