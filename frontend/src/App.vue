@@ -1,22 +1,22 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <div className="App">
     <div>
-      <!-- <Navbar /> -->
-      Nabbar
+      <Navbar />
     </div>
     <div className="flex min-h-screen bg-gray-100 justify-center pt-3">
       <div className="w-11/12">
-        <div className="col-span-1 md:col-span-2 bg-white shadow-lg rounded-lg p-4">
-    
+        <div className="col-span-1 md:col-span-2 bg-white shadow-lg rounded-lg p-4">    
           <router-view></router-view>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import Navbar from './components/Navbar.vue'
+</script>
+
 
 <style scoped>
 .logo {

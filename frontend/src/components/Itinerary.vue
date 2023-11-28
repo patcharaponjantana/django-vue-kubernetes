@@ -111,7 +111,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeMount } from "vue";
+import { ref } from "vue";
 
 interface ItineraryProps {
     nPassenger: number;

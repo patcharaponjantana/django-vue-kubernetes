@@ -28,20 +28,6 @@
                     :date="ticket.date"
                 />
             </div>
-
-            <!-- {filteredTickets.map((ticket) => (
-                <Ticket
-                key={ticket.date}
-                id={ticket.date}
-                from={start}
-                to={end}
-                departureTime={ticket.departureTime}
-                arriveTime={ticket.arriveTime}
-                duration={ticket.duration}
-                price={ticket.price}
-                date={ticket.date}
-                />
-            ))} -->
         </div>
       </div>
     </div>
