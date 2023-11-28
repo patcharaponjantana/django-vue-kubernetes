@@ -18,8 +18,6 @@ services:
             - .env
         volumes:
             - db:/var/lib/postgresql/data
-        ports: 
-            - 5432:5432
 
     frontend:
         container_name: ${PROJECT_NAME}-frontend
