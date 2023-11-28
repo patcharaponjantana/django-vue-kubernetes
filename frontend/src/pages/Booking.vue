@@ -30,7 +30,7 @@
       <Passenger :data="data" :onSuccess="handleNextStep" :onBack="handlePrevStep"/>
     </div>
     <div v-else-if="step === 2">
-      
+      <Payment :nPassenger="3" :tripDetail="tripDetail" />
     </div>
 </template>
 
@@ -38,6 +38,7 @@
 import { ref } from "vue";
 import Itinerary from '../components/Itinerary.vue'
 import Passenger from '../components/Passenger.vue'
+import Payment from '../components/Payment.vue'
 
 const step = ref<number>(0);
 const data = ref({});
@@ -78,6 +79,6 @@ const handleNextStep = (dataIn: any) => {
 
 const handlePrevStep = (dataIn: any) => {
     data.value = dataIn;
-    step.value = step.value + 1;
+    step.value = step.value - 1;
 };
 </script>

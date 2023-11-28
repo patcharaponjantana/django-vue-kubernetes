@@ -23,6 +23,13 @@ const routes: RouteRecordRaw[] = [
       default: () => import("./pages/Booking.vue"),
     },
   },
+  {
+    path: "/booking-success",
+    name: "booking-success",
+    components: {
+      default: () => import("./pages/BookingSuccess.vue"),
+    },
+  },
 //   {
 //     path: "/project",
 //     redirect: "/"
