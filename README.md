@@ -1,4 +1,10 @@
 # Ferry Booking App
+This is the example code for ferry booking
+
+## Technology
+- Vue 3 (with Vite)
+- Django 4.12
+- PostgreSQL
 
 ## Prerequisite
 - docker compose v2   
@@ -39,13 +45,12 @@ To Do
 ## Screenshot
 
 ### Frontend
-![01_frontend_mobile_menu](/_docs/01_frontend_mobile_menu.png "01_frontend_mobile_menu")
 ![02_frontend_home](/_docs/02_frontend_home.png "02_frontend_home")
 ![03_frontend_search](/_docs/03_frontend_search.png "03_frontend_search")
 ![04_frontend_itinerary](/_docs/04_frontend_itinerary.png "04_frontend_itinerary")
-![05_frontend_bookingsuccess](/_docs/05_frontend_bookingsuccess.png "05_frontend_bookingsuccess")
-![06_frontend_passenger](/_docs/06_frontend_passenger.png "06_frontend_passenger")
-![07_frontend_payment](/_docs/07_frontend_payment.png "07_frontend_payment")
+![05_frontend_passenger](/_docs/05_frontend_passenger.png "05_frontend_passenger")
+![06_frontend_payment](/_docs/06_frontend_payment.png "06_frontend_payment")
+![07_frontend_bookingsuccess](/_docs/07_frontend_bookingsuccess.png "07_frontend_bookingsuccess")
 
 ### Backend
 ![08_backend_api](/_docs/08_backend_api.png "08_backend_api")
