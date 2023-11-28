@@ -1,7 +1,7 @@
 # Ferry Booking App
 This is the example code for ferry booking
 
-## Technology
+## Technologies
 - Vue 3 (with Vite)
 - Django 4.12
 - PostgreSQL
@@ -36,7 +36,7 @@ docker compose version
 docker compose up
 ```
 
-frontend: http://localhost:3000
+frontend: http://localhost:3000  
 backend: http://localhost:8000
 
 ### With Kubernetes
