@@ -22,13 +22,22 @@
     ></a-steps>
 
     <a-divider></a-divider>
-    <!-- <Itinerary nPassenger={3} :tripDetail="tripDetail" :data="data" onSuccess={handleNextStep}/> -->
-    <Itinerary :nPassenger="3" :tripDetail="tripDetail" :data="data" />
+    
+    <div v-if="step === 0">
+      <Itinerary :nPassenger="3" :tripDetail="tripDetail" :data="data" :onSuccess="handleNextStep"/>
+    </div>
+    <div v-else-if="step === 1">
+      <Passenger :data="data" :onSuccess="handleNextStep" :onBack="handlePrevStep"/>
+    </div>
+    <div v-else-if="step === 2">
+      
+    </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
 import Itinerary from '../components/Itinerary.vue'
+import Passenger from '../components/Passenger.vue'
 
 const step = ref<number>(0);
 const data = ref({});
@@ -62,5 +71,13 @@ const onChange = (value: number) => {
     step.value = value;
 };
 
+const handleNextStep = (dataIn: any) => {
+    data.value = dataIn;
+    step.value = step.value + 1;
+};
 
+const handlePrevStep = (dataIn: any) => {
+    data.value = dataIn;
+    step.value = step.value + 1;
+};
 </script>
