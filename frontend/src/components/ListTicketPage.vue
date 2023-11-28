@@ -13,9 +13,9 @@
 
       <div>      
         <div className="mb-6">
-            <h2 className="text-xs mt-4 mb-4 text-left">{{ filteredTickets.length }} results for {{ props.date }}</h2>
+            <h2 className="text-xs mt-4 mb-4 text-left">{{ tickets.length }} results for {{ props.date }}</h2>
             
-            <div v-for="ticket in filteredTickets">
+            <div v-for="ticket in tickets">
                 <Ticket 
                     :key="ticket.date"
                     :id="ticket.date"
@@ -34,25 +34,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
 import Ticket from '../components/Ticket.vue'
 import { useRouter } from "vue-router";
 import { ArrowLeftOutlined } from '@ant-design/icons-vue';
 
 const router = useRouter();
 
-interface ListTicketPageProps {
-  start: string;
-  end: string;
-  passengers: number;
-  date: string;
-}
-
-const props = defineProps<ListTicketPageProps>()
-
-console.log(props)
-
-interface ticketDetail {
+interface TicketDetail {
     date: string; 
     departureTime: string; 
     arriveTime: string;
@@ -60,20 +48,17 @@ interface ticketDetail {
     price: number;
 }
 
-const tickets = ref<Array<ticketDetail>>([
-    { date: '2023-03-23', departureTime: "9:00 AM", arriveTime: "12:00 PM", duration: "3 hours", price: 20.00 },
-    { date: '2023-03-23', departureTime: "12:00 AM", arriveTime: "13:00 PM", duration: "1 hours", price: 20.00 },
-    { date: '2023-03-24', departureTime: "9:00 AM", arriveTime: "12:00 PM", duration: "3 hours", price: 20.00 },
-    { date: '2023-03-25', departureTime: "9:00 AM", arriveTime: "12:00 PM", duration: "3 hours", price: 20.00 },
-]);
+interface ListTicketPageProps {
+  start: string;
+  end: string;
+  date: string;
+  passengers: number;
+  tickets: Array<TicketDetail>;  
+}
 
-const filteredTickets = computed(() => {
-  return tickets.value.filter((ticket) => ticket.date === props.date);
-})
-
+const props = defineProps<ListTicketPageProps>()
 const goPreviousPage = () => router.go(-1);
 
-// const filteredTickets = tickets.filter((ticket) => ticket.date === selectedDate);
 
 </script>
 

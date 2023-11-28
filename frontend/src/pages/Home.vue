@@ -106,7 +106,7 @@ const formState = reactive<FormState>({
     from: 'Phuket',
     to: 'PhiPhi',
     passengers: 1,
-    travelDate: dayjs('2023-03-24', dateFormat),
+    travelDate: dayjs('2023-11-28', dateFormat),
 });
 
 const options = computed(() => {

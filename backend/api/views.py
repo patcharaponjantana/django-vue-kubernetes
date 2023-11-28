@@ -47,10 +47,10 @@ class BoatScheduleViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_class = filters.BoatScheduleFilter
 
-    def get_permissions(self):
-        if self.request.method in ['GET']:
-            return [permissions.IsAuthenticated()]
-        return [permissions.IsAdminUser()]
+    # def get_permissions(self):
+    #     if self.request.method in ['GET']:
+    #         return [permissions.IsAuthenticated()]
+    #     return [permissions.IsAdminUser()]
 
 class BookingViewSet(viewsets.ModelViewSet):
     queryset = models.Booking.objects.all()

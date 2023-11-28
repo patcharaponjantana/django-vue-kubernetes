@@ -36,11 +36,15 @@ class FerryTypeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class BoatScheduleSerializer(serializers.ModelSerializer):
+    from_location__name = serializers.CharField(source='from_location.name', read_only=True)
+    to_location__name = serializers.CharField(source='to_location.name', read_only=True)
+
     class Meta:
         model = models.BoatSchedule
         fields = '__all__'
 
 class BookingSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = models.Booking
         fields = '__all__'

@@ -34,7 +34,7 @@ export const useMainStore = defineStore({
       }
     },
     async getSearchResult(source: number, destination: number, date: string) {
-      let { data, status } = await Axios_Auth.get(`/api/boat-schedule/?from_location=${source}&from_location=${destination}&departure_time__date=${date}`);
+      let { data, status } = await Axios_Auth.get(`/api/boat-schedule/?from_location__name=${source}&to_location__name=${destination}&departure_time__date=${date}`);
       if (status === 200) {
         this.searchResult = data.results;
       } else {
