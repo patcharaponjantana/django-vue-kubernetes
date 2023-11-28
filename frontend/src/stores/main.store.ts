@@ -17,13 +17,6 @@ export const useMainStore = defineStore({
   actions: {
     async checkUserSession(status: number, data?: any) {
       // check if any problem with request 
-
-      // if (status === 401 && data?.code === "token_not_valid") {
-      //   this.setIsLogout();
-      //   setTimeout(() => {
-      //     window.location.reload();
-      //   }, 480);
-      // }
     },
     async getLocationList() {
       let { data, status } = await Axios_Auth.get("/api/location/");

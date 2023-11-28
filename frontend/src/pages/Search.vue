@@ -22,7 +22,7 @@ const searchResult = computed(() => {
         item['date'] = query.date
         item['departureTime'] = item['departure_time']
         item['arriveTime'] = item['arrive_time']
-        item['duration'] = '2 hours'
+        item['duration'] = '30 minutes'
         return item
     })    
 })

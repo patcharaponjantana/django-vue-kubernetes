@@ -13,9 +13,11 @@
             autoComplete="off"
         >
             <a-form-item
-                label="From"
                 name="from"
             >
+                <template v-slot:label>
+                    <label className="font-bold" :style="{ fontSize: '15px'}">From</label>
+                </template>
                 <a-select
                     v-model:value="formState.from"
                     show-search
@@ -30,9 +32,11 @@
             </a-form-item>
            
             <a-form-item
-                label="To"
                 name="to"
             >
+                <template v-slot:label>
+                    <label className="font-bold" :style="{ fontSize: '15px'}">To</label>
+                </template>
                 <a-select
                     v-model:value="formState.to"
                     show-search
@@ -45,11 +49,13 @@
                 >
                 </a-select>
             </a-form-item>
-
+            
             <a-form-item
-                label="passengers"
                 name="passengers"
             >
+                <template v-slot:label>
+                    <label className="font-bold" :style="{ fontSize: '15px'}">No. of Passengers</label>
+                </template>
                 <a-input-number
                     v-model:value="formState.passengers" 
                     :min="1" 
@@ -59,9 +65,11 @@
             </a-form-item>
 
             <a-form-item
-                label="travelDate"
                 name="travelDate"
             >
+                <template v-slot:label>
+                    <label className="font-bold" :style="{ fontSize: '15px'}">Departure Date</label>
+                </template>
                 <a-date-picker
                     v-model:value="formState.travelDate" 
                     date-format="YYYY/MM/DD"
