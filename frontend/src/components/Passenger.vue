@@ -10,7 +10,6 @@
           <a-form
             name="basic"
             :label-col="{ span: 4 }"
-            :wrapper-col="{ span: 10 }"
             :model="props.data"
             @finish="props.onSuccess"
             autoComplete="off"
@@ -52,6 +51,7 @@
                 <button
                     type='submit'
                     className="w-11/12 bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-2   rounded focus:outline-none focus:shadow-outline"
+                    style="width: 100%"
                 >
                     <div className='flex flex-row'>
                       <div className='text-center w-11/12'>
