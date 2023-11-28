@@ -83,16 +83,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
-import type { SelectProps } from 'ant-design-vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import dayjs, { Dayjs } from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useRouter } from "vue-router";
+import { useMainStore } from '../stores/main.store'
+
+const store = useMainStore()
+const router = useRouter();
 
 dayjs.extend(customParseFormat);
 const dateFormat = 'YYYY/MM/DD'; 
-
-const router = useRouter();
 
 interface FormState {
     from: string;
@@ -108,21 +109,18 @@ const formState = reactive<FormState>({
     travelDate: dayjs('2023-03-24', dateFormat),
 });
 
-// const options = [
-const options = ref<SelectProps['options']>([
-  {
-    value: 'Phuket',
-    label: 'Phuket',
-  },
-  {
-    value: 'PhiPhi',
-    label: 'PhiPhi',
-  },
-  {
-    value: 'Racha Island',
-    label: 'Racha Island',
-  },
-]);
+const options = computed(() => {
+    return store.location.map((item: any) => {
+        item['value'] = item['name']
+        item['label'] = item['name']
+        return item
+    })    
+})
+
+onMounted(() => {
+    store.getLocationList() // <div>
+})
+
 
 const onChange = (value: string) => {
   console.log(`selected ${value}`);

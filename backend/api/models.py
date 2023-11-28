@@ -13,7 +13,11 @@ from django.conf import settings
     
 #     def __str__(self):
 #         return f'{self.first_name} - {self.last_name} - {self.email}'
-
+class Location(models.Model):
+    name = models.CharField(max_length=300)
+    
+    def __str__(self):
+        return f'{self.name}'
 
 class FerryType(models.Model):
     name = models.CharField(max_length=300)
@@ -22,14 +26,15 @@ class FerryType(models.Model):
         return f'{self.name}'
 
 class BoatSchedule(models.Model):
-    from_location = models.CharField(max_length=300)
-    to_location = models.CharField(max_length=300)
+    from_location = models.ForeignKey(Location, related_name='from_location', on_delete=models.CASCADE)
+    to_location = models.ForeignKey(Location, related_name='to_location', on_delete=models.CASCADE)
     ferry_type = models.ForeignKey(FerryType, on_delete=models.CASCADE)
-    departure_datetime = models.DateTimeField()
+    departure_time = models.DateTimeField()
+    arrive_time = models.DateTimeField()
     price = models.FloatField()
     
     def __str__(self):
-        return f'{self.from_location} - {self.to_location} - {self.departure_datetime}'
+        return f'{self.from_location} - {self.to_location} - departure: {self.departure_time} - arrive: {self.arrive_time}'
 
 class Booking(models.Model):
     # user = models.ForeignKey(BookingUser, on_delete=models.CASCADE)

@@ -11,6 +11,8 @@
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
     "ant-design-vue": "4.x",
+    "axios": "^1.6.2",
+    "pinia": "^2.1.7",
     "vue": "^3.3.8",
     "vue-router": "4"
   },

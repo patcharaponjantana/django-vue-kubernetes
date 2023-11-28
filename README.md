@@ -22,3 +22,11 @@ npm install -D tailwindcss
 
 # install antd-vue
 ```
+
+
+# Init Backend
+```sh
+
+# filter
+pip install django-filter
+```

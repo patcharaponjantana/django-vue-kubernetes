@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
-# from .serializers import UserSerializer, GroupSerializer, BookingUserSerializer
-from . import models, serializers 
+from django_filters.rest_framework import DjangoFilterBackend
+from . import models, serializers, filters
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -23,10 +23,12 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 # App
-# class BookingUserViewSet(viewsets.ModelViewSet):
-#     queryset = models.BookingUser.objects.all()
-#     serializer_class = serializers.BookingUserSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+class LocationViewSet(viewsets.ModelViewSet):
+    queryset = models.Location.objects.all()
+    serializer_class = serializers.LocationSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['name']
 
 class FerryTypeViewSet(viewsets.ModelViewSet):
     queryset = models.FerryType.objects.all()
@@ -42,6 +44,8 @@ class BoatScheduleViewSet(viewsets.ModelViewSet):
     queryset = models.BoatSchedule.objects.all()
     serializer_class = serializers.BoatScheduleSerializer
     # permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = filters.BoatScheduleFilter
 
     def get_permissions(self):
         if self.request.method in ['GET']:
