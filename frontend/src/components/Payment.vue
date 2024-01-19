@@ -16,11 +16,11 @@
 
 <script setup lang="ts">
 
-interface PaymentProps {
-  nPassenger: number;
-  tripDetail: any;
-}
+// interface PaymentProps {
+//   nPassenger: number;
+//   tripDetail: any;
+// }
 
-const props = defineProps<PaymentProps>()
+// const props = defineProps<PaymentProps>()
 
 </script>

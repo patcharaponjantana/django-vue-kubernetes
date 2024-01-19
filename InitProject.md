@@ -30,3 +30,7 @@ npm install -D tailwindcss
 # filter
 pip install django-filter
 ```
+
+
+
+## Deploy Kubernetes

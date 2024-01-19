@@ -15,9 +15,6 @@ export const useMainStore = defineStore({
     // getSearch: (state) => state.searchResult,
   },
   actions: {
-    async checkUserSession(status: number, data?: any) {
-      // check if any problem with request 
-    },
     async getLocationList() {
       let { data, status } = await Axios_Auth.get("/api/location/");
       if (status === 200) {

@@ -8,7 +8,7 @@ volumes:
     media: {}
     static: {}
     graph_db: {}
-    db: {}
+    # db: {}
 
 services: 
     db:
@@ -16,13 +16,15 @@ services:
         image: postgres:12.17
         env_file:
             - .env
-        volumes:
-            - db:/var/lib/postgresql/data
+        ports: 
+            - 5432:5432
+        # volumes:
+        #     - db:/var/lib/postgresql/data
 
     frontend:
         container_name: ${PROJECT_NAME}-frontend
         build: ./frontend
-        command: sh run.sh
+        # command: sh run.sh
         volumes: 
             - ./frontend:/code
         ports: 
@@ -36,6 +38,8 @@ services:
         container_name: ${PROJECT_NAME}-backend
         build: ./backend
         # command: sh runserver.sh
+        depends_on:
+            - db
         volumes: 
             - ./backend:/backend
         ports: 

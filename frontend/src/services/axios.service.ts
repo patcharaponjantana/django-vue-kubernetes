@@ -16,13 +16,6 @@ const isRequired = (param: any) => {
   throw new Error(`${param} is required.`);
 };
 
-const API_ErrorHandler = {
-  REST_API(error: object) {
-    console.log("Error:", error);
-    return error;
-  },
-};
-
 var headers = {
   "Content-Type": "application/json"
 };
@@ -47,7 +40,7 @@ const Axios = {
 };
 
 const Axios_Auth = {
-  async get(url: string = isRequired("url"), body?: object) {
+  async get(url: string = isRequired("url")) {
     try {
       const accessToken = localStorage.getItem(ACC_TOKEN_NAME);
       const response = await Axios_instance.get(url, {

@@ -69,8 +69,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
-import Ticket from '../components/Ticket.vue'
 import { useRouter } from "vue-router";
 
 interface TicketProps {
@@ -87,7 +85,7 @@ const props = defineProps<TicketProps>()
 
 const router = useRouter();
 
-const onButtonClick = (values: any) => {
+const onButtonClick = () => {
   router.push({ name: "booking" })
 };
 

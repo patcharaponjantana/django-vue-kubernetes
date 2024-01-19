@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed, onMounted } from 'vue';
+import { reactive, computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router'
 import ListTicketPage from '../components/ListTicketPage.vue'
 import { useMainStore } from '../stores/main.store'
