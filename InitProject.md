@@ -34,3 +34,11 @@ pip install django-filter
 
 
 ## Deploy Kubernetes
+### Prerequiresite
+- minikube (for testing)
+- kubectl
+
+### Step
+```sh
+minikube start
+```
