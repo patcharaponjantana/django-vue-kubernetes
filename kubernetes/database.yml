@@ -13,13 +13,30 @@ spec:
     spec:
       containers:
       - name: database
-        image: <Image>
+        image: postgres:12.17
         resources:
           limits:
             memory: "500Mi"
             cpu: "500m"
         ports:
         - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_PASSWORD
+
 
 --- 
 apiVersion: v1
