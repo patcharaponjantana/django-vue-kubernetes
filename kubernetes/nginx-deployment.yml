@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # name of deployment
+  name: nginx-deployment
+
+  # need to be same with selector in Service file
+  labels:
+    app: nginx
+
+# for deployment
+spec:
+  replicas: 2
+
+  # need to be same with template->metadata->labels->app
+  selector:
+    matchLabels:
+      app: nginx
+
+  # template has it own meta and spec (need to be same with select in spec)
+  template:
+    metadata:
+      labels:
+        app: nginx
+
+    # blueprint for the pods 
+    spec:
+      containers:
+      - name: nginx
+        image: nginx        
+        ports:
+        - containerPort: 8080

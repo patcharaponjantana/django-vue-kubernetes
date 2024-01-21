@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+
+      # need to be same with Deployment File>spec>template>spec>ports>containerPort
+      targetPort: 8080
