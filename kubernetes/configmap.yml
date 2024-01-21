@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: booking-configmap
+type: Opaque
+data:
+  VITE_BACKEND_URL: backend-service
+  STATE: dev
+  DB_HOST: database-service
+  DB_PORT: "5432"
