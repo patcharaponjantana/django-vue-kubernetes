@@ -6,8 +6,12 @@ ADD . /code
 
 
 # BUILD and Run
-RUN yarn install & yarn global add serve
-RUN yarn build
+# RUN yarn install & yarn global add serve
+# RUN yarn build
 
-EXPOSE 3000
-CMD ["serve", "-s", "dist"] 
+# EXPOSE 3000
+# CMD ["serve", "-s", "dist"] 
+
+
+# For development
+CMD ["yarn", "dev", "--port", "3000", "--host"]

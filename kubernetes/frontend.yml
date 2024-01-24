@@ -13,13 +13,20 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: <Image>
+        image: patcharapon1995/booking-frontend
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "500Mi"
             cpu: "500m"
         ports:
         - containerPort: 3000
+        env:
+        - name: VITE_BACKEND_URL
+          valueFrom:
+            configMapKeyRef:
+              name: booking-configmap
+              key: VITE_BACKEND_URL
 
 --- 
 apiVersion: v1

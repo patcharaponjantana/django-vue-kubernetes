@@ -86,6 +86,7 @@
                     Find
                 </button>
             </a-form-item>
+            {{ apiPath }}
         </a-form>
     </div>
 </template>
@@ -102,6 +103,9 @@ const router = useRouter();
 
 dayjs.extend(customParseFormat);
 const dateFormat = 'YYYY/MM/DD'; 
+
+const apiPath = import.meta.env.VITE_BACKEND_URL;
+console.log(apiPath);
 
 interface FormState {
     from: string;

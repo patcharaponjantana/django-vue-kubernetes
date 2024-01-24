@@ -13,13 +13,53 @@ spec:
     spec:
       containers:
       - name: backend
-        image: <Image>
+        image: patcharapon1995/booking-backend
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "500Mi"
             cpu: "500m"
         ports:
         - containerPort: 8000
+        env:
+        # secret
+        - name: POSTGRES_DB
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_DB
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: POSTGRES_PASSWORD
+        - name: DJANGO_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: booking-secret
+              key: DJANGO_SECRET
+
+        # configmap
+        - name: STATE
+          valueFrom:
+            configMapKeyRef:
+              name: booking-configmap
+              key: STATE
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: booking-configmap
+              key: DB_HOST
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: booking-configmap
+              key: DB_PORT
 
 --- 
 apiVersion: v1
